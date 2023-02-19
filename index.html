@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Content&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
+    <meta charset="utf-8">
+    <script src="assets/program.js"></script>
+    <script src="assets/jquery-3.5.1.js"></script>
+
+</head>
+
+<body>
+
+    <div class="top_bar">
+        <p class="text_top">ប្រព័ន្ធបង់រំលោះ</p>
+    </div>
+
+    <div class="container">
+        <form name="loan_system">
+            <div class="data_in">
+                <div class="text_label_area">
+                    <span class="text_label">ប្រាក់កម្ចី ៖</span><span id="x_novamsg" class="novamsg_layout"></span>
+                </div>
+                <input type="number" name="loan" id="loan" class="form_layout form-control" placeholder="ប្រាក់ដើម">
+            </div>
+            <div class="data_in">
+                <div class="text_label_area">
+                    <span class="text_label">អត្រាការប្រាក់ក្នុងមួយឆ្នាំ ៖</span><span id="r_novamsg" class="novamsg_layout"></span>
+                </div>
+                <input type="number" id="interest_rate_per_year" class="form_layout form-control" placeholder="អត្រាការប្រាក់">
+            </div>
+            <div class="data_in">
+                <div class="text_label_area">
+                    <span class="text_label">រយៈពេលបង់រំលោះគិតជាឆ្នាំ ៖</span><span id="t_novamsg" class="novamsg_layout"></span>
+                </div>
+                <select id="installment_period_in_year" class="form_layout form-control">
+                    <option value="" disabled selected>សូមជ្រើសរើសរយៈពេលបង់</option>
+                    <option value="1">១</option>
+                    <option value="2">២</option>
+                    <option value="3">៣</option>
+                    <option value="4">៤</option>
+                    <option value="5">៥</option>
+                    <option value="6">៦</option>
+                    <option value="7">៧</option>
+                    <option value="8">៨</option>
+                    <option value="9">៩</option>
+                    <option value="10">១០</option>
+                </select>
+            </div>
+            <div class="data_in">
+                <div class="text_label_area">
+                    <span class="text_label">រំលោះជា ៖</span><span id="dt_novamsg" class="novamsg_layout"></span>
+                </div>
+                <select id="depreciation_type" class="form_layout form-control">
+                    <option value="" disabled selected>សូមជ្រើសរើសការបង់</option>
+                    <option value="monthly">ប្រចាំខែ</option>
+                    <option value="annual">ប្រចាំឆ្នាំ</option>
+                </select>
+            </div>
+            <div class="data_in">
+                <div class="text_label_area">
+                    <span for="loan" class="text_label">កាលបរិច្ឆេទចាប់ផ្ដើមរំលោះ ៖</span><span id="ds_novamsg" class="novamsg_layout"></span>
+                </div>
+                <input type="date" id="depreciation_start" class="form_layout form-control" placeholder="dd/mm/yyyy">
+            </div>
+        </form>
+        <div class="btn_area">
+            <button onclick="loan_submit()">បង្ហាញតារាងបង់ប្រាក់</button>
+        </div>
+        <hr>
+        <!--Show Result-->
+        <div class="show_my_result" id="show_my_result">
+            <div class="header">
+                <p class="header_txt">តារាងបង់ប្រាក់</p>
+            </div>
+            <div class="result_layout_area">
+                <div class="result_layout_loan box">
+                    <p class="label_data_re">ប្រាក់កម្ចី៖</p>
+                    <p class="data_re" id="s_loan">N/A</p>
+                </div>
+                <div class="result_layout_interest box">
+                    <p class="label_data_re">អត្រាការប្រាក់(ក្នុងមួយឆ្នាំ)៖</p>
+                    <p class="data_re" id="s_interest_rate_per_year">N/A</p>
+                </div>
+                <div class="result_layout_installment box">
+                    <p class="label_data_re">រយៈពេល(គិតជាឆ្នាំ)៖</p>
+                    <p class="data_re" id="s_installment_period_in_year">N/A</p>
+                </div>
+                <div class="result_layout_depreciation_type box">
+                    <p class="label_data_re">បង់ប្រចាំ៖</p>
+                    <p class="data_re" id="s_depreciation_type">N/A</p>
+                </div>
+                <div class="result_layout_depreciation_start box">
+                    <p class="label_data_re">កាលបរិច្ឆេទ៖</p>
+                    <p class="data_re" id="s_depreciation_start">N/A</p>
+                </div>
+            </div>
+            <div class="show_data">
+                <table id="data_tb"></table>
+            </div>
+        </div>
+
+</body>
+
+</html>
